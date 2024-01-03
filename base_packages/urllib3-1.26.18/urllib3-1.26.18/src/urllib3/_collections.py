@@ -1,4 +1,5 @@
 from __future__ import absolute_import
+from typing_extensions import Self
 
 try:
     from collections.abc import Mapping, MutableMapping
@@ -353,3 +354,5 @@ class HTTPHeaderDict(MutableMapping):
             headers.append((key, value.strip()))
 
         return cls(headers)
+    
+    

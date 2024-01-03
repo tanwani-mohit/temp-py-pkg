@@ -265,6 +265,12 @@ class TestingApp(RequestHandler):
 
     def headers(self, request):
         return Response(json.dumps(dict(request.headers)))
+    
+    def headers_and_params(self, request: httputil.HTTPServerRequest) -> Response:
+        params = request_params(request)
+        return Response(
+            json.dumps({"headers": dict(request.headers), "params": params})
+        )
 
     def headers_and_params(self, request):
         return Response(
